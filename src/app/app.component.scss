@@ -1,0 +1,13 @@
+
+.parent {
+    height: 100%;
+    border: 2px solid grey;
+    overflow: auto;
+    scroll-snap-type: y mandatory;
+  }
+
+  .child {
+    scroll-snap-align: start;
+    height: 100%;
+    margin: 100px 0 100px 0;
+  }
