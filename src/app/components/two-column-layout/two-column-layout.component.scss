@@ -1,0 +1,5 @@
+.custom-flex::ng-deep > div{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
