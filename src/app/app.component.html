@@ -5,7 +5,9 @@
   </div>
 
   <div right>
-    <span class="flex w-full justify-center overflow-x-scroll custom-hide-scrollbar">
+
+
+    <span class="flex w-full flex-shrink-0 justify-center overflow-x-scroll custom-hide-scrollbar">
       <h2 class="font-bold text-lg mx-2 underline">Labore</h2>
       <h2 class="font-bold text-lg mx-2">Tempor</h2>
       <h2 class="font-bold text-lg mx-2">Elitr</h2>
@@ -13,27 +15,20 @@
       <h2 class="font-bold text-lg mx-2">Clita</h2>
     </span>
 
-    <div class="relative flex-1 flex overflow-hidden">
-      <div class="absolute z-10 top inset-x-0 h-12 pointer-events-none bg-gradient-to-b from-exxeta-white from-20% to-transparent"></div>
+    <section class="w-full flex flex-1 flex-col items-center overflow-y-scroll bg-slate-100">
+
+
+      <div class="flex-shrink-0 h-12 mb-2 w-full rounded-exxeta-border-radius bg-exxeta-grey-600"></div>
+      <div class="flex-shrink-0 h-12 mb-2 w-full rounded-exxeta-border-radius bg-exxeta-grey-600"></div>
+      <div class="flex-shrink-0 h-6 my-1 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
+      <div class="flex-shrink-0 h-6 my-1 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
+      <div class="flex-shrink-0 h-6 my-1 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
+      <div class="flex-shrink-0 h-8 mt-8 w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-200"></div>
       
-      
-      
-      <div class="h-full w-full flex-grow-0 scrollbar overflow-auto overflow-y-scroll scroll-smooth custom-hide-scrollbar snap-y snap-mandatory space-y-[400px]">
-        <section *ngFor="let number of [0,1,2,3,4,5,6,7]" class="relative snap-start h-full">
-          
-          <div class="absolute inset-0 flex flex-col items-center justify-center">
-            <div class="h-12 mb-2 w-full rounded-exxeta-border-radius bg-exxeta-grey-600"></div>
-            <div class="h-6 my-1 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
-            <div class="h-6 my-1 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
-            <div class="h-6 my-1 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
-            <div class="h-8 mt-8 w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-200"></div>
-          </div>
-        </section>
-      </div>
-      
-      <div class="absolute z-10 bottom-0 inset-x-0 h-12 pointer-events-none bg-gradient-to-t from-exxeta-white from-20% to-transparent"></div>
     
-    </div>
+    </section>
+        
+
     
   </div>
 </two-column-layout>
