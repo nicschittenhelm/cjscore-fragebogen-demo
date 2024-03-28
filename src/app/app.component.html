@@ -14,25 +14,30 @@
       <h2 class="font-bold text-lg mx-2">Clita</h2>
     </span>
 
-    <ng-container *ngFor="let section of sectionsArr; let i = index">
-      
-      <section #section *ngIf="i === currentSectionIndex" class="w-full flex flex-1 flex-col items-center overflow-y-scroll scroll-smooth snap-y snap-mandatory bg-slate-100">
-        
-        <span class="bg-red-400 h-[400px] w-full flex flex-shrink-0">sdafjsdaf</span>
-
-        <div class="snap-start flex-shrink-0 h-12 mb-2 w-full rounded-exxeta-border-radius bg-exxeta-grey-600 font-sen text-center text-exxeta-white text-exxeta-fontsize-xxl">{{sectionsArr[i]}}</div>
-        <div class="flex-shrink-0 h-12 mb-2 w-full rounded-exxeta-border-radius bg-exxeta-grey-600"></div>
-        <div class="flex-shrink-0 h-6 my-1 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
-        <div class="flex-shrink-0 h-6 my-1 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
-        <div class="flex-shrink-0 h-6 my-1 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
-        <div class="flex-shrink-0 h-8 mt-8 w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-200"></div>
-        
-        <div class="snap-end flex-shrink-0 h-[400px] mt-8 w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-200">dummy spacer</div>
-
-        <span class="bg-red-400 h-[100px] w-full flex flex-shrink-0">sdafjsdaf</span>
-        
-      </section> 
-  </ng-container>
     
+    <div #sectionContainer class="w-full flex-1 border-4 border-red-500 overflow-y-scroll scroll-smooth snap-y snap-mandatory">
+      <ng-container *ngFor="let section of sectionsArr; let i = index">
+        
+        <section *ngIf="i === currentSectionIndex" class="w-full flex flex-1 flex-shrink-0 overflow-visible flex-col items-center bg-slate-100">
+        
+          <span class="bg-red-400 h-[200px] w-full flex flex-shrink-0 hidden">deadzone</span>
+          <div class="snap-start flex-shrink-0 h-12 mb-2 w-full rounded-exxeta-border-radius bg-exxeta-grey-600 font-sen text-center text-exxeta-white text-exxeta-fontsize-xxl">{{sectionsArr[i]}}</div>
+          <div class="flex-shrink-0 h-12 mb-2 w-full rounded-exxeta-border-radius bg-exxeta-grey-600"></div>
+          <div class="flex-shrink-0 h-6 my-1 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
+          <div class="flex-shrink-0 h-6 my-1 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
+          <div class="flex-shrink-0 h-6 my-1 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
+          <div class="flex-shrink-0 h-8 mt-8 w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-200"></div>
+          
+          <div class="snap-end flex-shrink-0 mt-8 w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-200 h-[400px] hidden">dummy spacer</div>
+
+          
+          <span class="bg-red-400 h-[200px] w-full flex flex-shrink-0 hidden">deadzone</span>
+        
+        </section>
+      
+      </ng-container>
     </div>
-  </two-column-layout>
+
+    
+  </div>
+</two-column-layout>

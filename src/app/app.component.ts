@@ -9,12 +9,12 @@ import { Subject, debounceTime, distinctUntilChanged, filter, fromEvent, map, re
 export class AppComponent {
   title = 'cjscore-fragebogen-demo';
 
-  @ViewChild('section', { static: false }) section?: ElementRef;
-  @ViewChildren('section') sectionElements?: QueryList<ElementRef>;
+  @ViewChild('sectionContainer', { static: false }) sectionContainer?: ElementRef;
+  //@ViewChildren('section') sectionContainers?: QueryList<ElementRef>;
   private destroy$ = new Subject<void>();
   private scrollReachedEdge:boolean = false;
   currentSectionIndex = 0;
-  sectionsArr: any[] = ['magna', 'ipsum', 'dolor', 'sit', 'amet'];
+  sectionsArr: any[] = ['1', '2', '3', '4', '5'];
   //*ngIf="i === currentSectionIndex"
 
   ngOnDestroy(): void {
@@ -22,51 +22,46 @@ export class AppComponent {
     this.destroy$.complete();
   }
 
-  ngAfterViewChecked(): void {
-    
-    this.sectionElements?.forEach((element, index) => {
-      //const sectionElement = this.sectionElements?.toArray()[index]?.nativeElement;
-      const sectionElement = element.nativeElement
 
-      if (!sectionElement.wheelListenerAdded) {
-        fromEvent<WheelEvent>(sectionElement, 'wheel')
-          .pipe(
-            map((event) => this.getWheelDirection(event)),
-            filter((direction) => {
-              if (!this.sectionIsOverflowing(sectionElement)) {
-                return true;
-              } else if (this.sectionIsOverflowing(sectionElement)) {
-                const scrollStatus = this.scrollStatus(sectionElement);
-                return (scrollStatus === 'up' && direction === 'up') || (scrollStatus === 'down' && direction === 'down');
-              }
-              return false;
-            }),
-            throttleTime(200), // Add a 200ms timeout
-            debounceTime(0), // Add a short delay (adjust the time as needed)
-            distinctUntilChanged(),
-            takeUntil(this.destroy$)
-            )
-            .subscribe((direction) => {
-              this.triggerAction(direction);
-            });
-        // Mark the section as having the wheel listener added
-        sectionElement.wheelListenerAdded = true;
-      }
-    });
+
+  ngAfterViewInit(): void {
+
+    const sectionContainer = this.sectionContainer?.nativeElement;
+
+    fromEvent<WheelEvent>(sectionContainer, 'wheel')
+      .pipe(
+        map((event) => this.getWheelDirection(event)),
+        filter((direction) => {          
+          if (!this.isOverflowing(sectionContainer)) {
+            return true;
+          } else if (this.isOverflowing(sectionContainer)) {
+            const scrollStatus = this.scrollStatus(sectionContainer);
+            return (scrollStatus === 'up' && direction === 'up') || (scrollStatus === 'down' && direction === 'down');
+          }
+          return false;
+        }),
+        throttleTime(300), 
+        debounceTime(0),
+        takeUntil(this.destroy$)
+        )
+        .subscribe((direction) => {
+          this.triggerAction(direction);
+        });
+
   }
 
-  sectionIsOverflowing(sectionElement: HTMLElement): boolean {
-    return sectionElement.scrollHeight > sectionElement.clientHeight;
+  isOverflowing(sectionContainer: HTMLElement): boolean {
+    return sectionContainer.scrollHeight > sectionContainer.clientHeight;
   }
 
-  private scrollStatus(sectionElement: HTMLElement) {
-    if (sectionElement.scrollTop === 0) {
+  private scrollStatus(sectionContainer: HTMLElement) {
+    if (sectionContainer.scrollTop === 0) {
       // Top
       this.scrollReachedEdge = true;
       return('up');
     } else if (
-      sectionElement.scrollHeight - sectionElement.scrollTop ===
-      sectionElement.clientHeight
+      sectionContainer.scrollHeight - sectionContainer.scrollTop ===
+      sectionContainer.clientHeight
     ) {
       // Bottom
       this.scrollReachedEdge = true;
@@ -83,9 +78,7 @@ export class AppComponent {
   }
 
   triggerAction(direction: 'up' | 'down'): void {
-    console.log('Scroll direction:', direction);
     console.log('Current section index:', this.currentSectionIndex);
-    
     if (direction === 'up' && this.currentSectionIndex > 0) {
       this.currentSectionIndex--; // Move to the previous section if available
     } else if (direction === 'down' && this.currentSectionIndex < this.sectionsArr.length - 1) {
