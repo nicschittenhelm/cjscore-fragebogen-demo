@@ -15,20 +15,21 @@
     </span>
 
     
-    <div #sectionContainer class="w-full flex-1 border-4 border-red-500 overflow-y-scroll scroll-smooth snap-y snap-mandatory">
+    <div #sectionContainer [class.overflow-y-scroll]="overflowEnabled" class="w-full flex-1 overflow-y-scroll scroll-smooth relative">
       <ng-container *ngFor="let section of sectionsArr; let i = index">
         
-        <section *ngIf="i === currentSectionIndex" class="w-full flex flex-1 flex-shrink-0 overflow-visible flex-col items-center bg-slate-100">
+        <section [@stagger] (animationstart)="onAnimationStart($any($event))" (animationend)="onAnimationEnd($any($event))" *ngIf="i === currentSectionIndex" class="w-full flex flex-1 overflow-hidden flex-col items-center relative">
         
-          <span class="bg-red-400 h-[200px] w-full flex flex-shrink-0 hidden">deadzone</span>
-          <div class="snap-start flex-shrink-0 h-12 mb-2 w-full rounded-exxeta-border-radius bg-exxeta-grey-600 font-sen text-center text-exxeta-white text-exxeta-fontsize-xxl">{{sectionsArr[i]}}</div>
+          <span class="bg-red-400 h-[200px] w-full rounded-3xl hidden">deadzone</span>
+
+          <div class="snap-start snap-always flex-shrink-0 h-12 mb-2 w-full rounded-exxeta-border-radius bg-exxeta-grey-600 font-sen text-center text-exxeta-white text-exxeta-fontsize-xxl">{{sectionsArr[i]}}</div>
           <div class="flex-shrink-0 h-12 mb-2 w-full rounded-exxeta-border-radius bg-exxeta-grey-600"></div>
           <div class="flex-shrink-0 h-6 my-1 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
           <div class="flex-shrink-0 h-6 my-1 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
-          <div class="flex-shrink-0 h-6 my-1 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
+          <div class=" flex-shrink-0 h-6 my-1 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
           <div class="flex-shrink-0 h-8 mt-8 w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-200"></div>
           
-          <div class="snap-end flex-shrink-0 mt-8 w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-200 h-[400px] hidden">dummy spacer</div>
+          <div class="flex-shrink-0 mt-8 w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-200 h-[400px] hidden">dummy spacer</div>
 
           
           <span class="bg-red-400 h-[200px] w-full flex flex-shrink-0 hidden">deadzone</span>
