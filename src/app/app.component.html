@@ -13,20 +13,73 @@
       <h2 class="font-bold text-lg mx-2">Clita</h2>
     </span>
 
+
+    <div #scrollableContent class="w-full flex-1 overflow-y-scroll custom-hide-scrollbar snap-y snap-mandatory relative space-y-16">
+      <ng-container *ngFor="let section of sectionsArr; let i = index">
+        
+        <section
+        appIsInViewport
+        #isInViewport="IsInViewport"
+        class="w-full h-full flex overflow-y-scroll custom-hide-scrollbar flex-col items-center relative snap-start snap-always">
+            
+          <span
+          appIsInViewport
+          #isInViewport="IsInViewport"
+          [@fadeInOut]
+          *ngIf="isInViewport.isOnScreen$ | async"
+          
+          class="w-full"
+          >
+
+            <!-- 
+              <div>{{ isInViewport.isOnScreen$ | async }}</div>
+            -->
+            
+            <div class="animation-element flex-shrink-0 h-12 mb-2 w-full rounded-exxeta-border-radius bg-exxeta-grey-600 font-sen text-center text-exxeta-white text-exxeta-fontsize-xxl">{{sectionsArr[i]}}</div>
+            <div class="animation-element flex-shrink-0 h-12 mb-2 w-full rounded-exxeta-border-radius bg-exxeta-grey-600"></div>
+            <div class="animation-element flex-shrink-0 h-6 my-1 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
+            <div class="animation-element flex-shrink-0 h-6 my-1 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
+            <div class="animation-element flex-shrink-0 h-6 my-1 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
+            <div class="animation-element flex-shrink-0 h-8 mt-8 w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-200"></div>
+            
+            <div class="animation-element flex-shrink-0 mt-8 w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-200 h-[400px] hidden">dummy spacer</div>
+          </span>
+
+        
+        
+        </section>
+      
+      </ng-container>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 
     <div class="relative flex-1 flex overflow-hidden">
       <div class="absolute z-10 top inset-x-0 h-12 pointer-events-none bg-gradient-to-b from-exxeta-white from-20% to-transparent"></div>
       
       
       
       <div class="h-full w-full flex-grow-0 scrollbar overflow-auto overflow-y-scroll scroll-smooth custom-hide-scrollbar snap-y snap-mandatory space-y-[400px]">
-        <section *ngFor="let number of [0,1,2,3,4,5,6,7]" class="relative snap-start h-full">
+        <section *ngFor="let section of sectionsArr; let i = index" class="relative snap-start h-full">
           
-          <div class="absolute inset-0 flex flex-col items-center justify-center">
-            <div class="h-12 mb-2 w-full rounded-exxeta-border-radius bg-exxeta-grey-600"></div>
-            <div class="h-6 my-1 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
-            <div class="h-6 my-1 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
-            <div class="h-6 my-1 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
-            <div class="h-8 mt-8 w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-200"></div>
+          <div class="absolute inset-0 flex flex-col items-center justify-center my-18">
+            <div class="snap-start snap-always flex-shrink-0 h-12 mb-2 w-full rounded-exxeta-border-radius bg-exxeta-grey-600 font-sen text-center text-exxeta-white text-exxeta-fontsize-xxl">{{sectionsArr[i]}}</div>
+            <div class="flex-shrink-0 h-12 mb-2 w-full rounded-exxeta-border-radius bg-exxeta-grey-600"></div>
+            <div class="flex-shrink-0 h-6 my-1 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
+            <div class="flex-shrink-0 h-6 my-1 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
+            <div class=" flex-shrink-0 h-6 my-1 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
+            <div class="flex-shrink-0 h-8 mt-8 w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-200"></div>
           </div>
         </section>
       </div>
@@ -34,6 +87,7 @@
       <div class="absolute z-10 bottom-0 inset-x-0 h-12 pointer-events-none bg-gradient-to-t from-exxeta-white from-20% to-transparent"></div>
     
     </div>
+    -->
     
   </div>
 </two-column-layout>
