@@ -43,8 +43,6 @@ export class AppComponent {
   title = 'cjscore-fragebogen-demo';
   sectionsArr: any[] = ['1', '2', '3', '4', '5'];
 
-  test() {
-    console.log('test')
-  }
+
 
 }

@@ -13,36 +13,43 @@
       <h2 class="font-bold text-lg mx-2">Clita</h2>
     </span>
 
-
-    <div #scrollableContent class="w-full flex-1 overflow-y-scroll custom-hide-scrollbar snap-y snap-mandatory relative space-y-16">
+    <div #scrollableContent class="w-full flex-1 overflow-y-scroll  snap-mandatory snap-y relative space-y-16">
       <ng-container *ngFor="let section of sectionsArr; let i = index">
         
         <section
         appIsInViewport
         #isInViewport="IsInViewport"
-        class="w-full h-full flex overflow-y-scroll custom-hide-scrollbar flex-col items-center relative snap-start snap-always">
+        class="w-full h-full flex overflow-y-scroll flex-col items-center relative snap-start snap-always bg-green-200 border-3 border-red-400">
             
           <span
           appIsInViewport
           #isInViewport="IsInViewport"
           [@fadeInOut]
-          *ngIf="isInViewport.isOnScreen$ | async"
+          
+          
           
           class="w-full"
           >
+            <!-- 
+              *ngIf="isInViewport.isOnScreen$ | async"
+            -->
+            
 
             <!-- 
-              <div>{{ isInViewport.isOnScreen$ | async }}</div>
+              <div class="text-center font-bold text-2xl">Is section visible: {{ isInViewport.isOnScreen$ | async }}</div>
             -->
             
             <div class="animation-element flex-shrink-0 h-12 mb-2 w-full rounded-exxeta-border-radius bg-exxeta-grey-600 font-sen text-center text-exxeta-white text-exxeta-fontsize-xxl">{{sectionsArr[i]}}</div>
             <div class="animation-element flex-shrink-0 h-12 mb-2 w-full rounded-exxeta-border-radius bg-exxeta-grey-600"></div>
             <div class="animation-element flex-shrink-0 h-6 my-1 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
             <div class="animation-element flex-shrink-0 h-6 my-1 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
+            
             <div class="animation-element flex-shrink-0 h-6 my-1 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
             <div class="animation-element flex-shrink-0 h-8 mt-8 w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-200"></div>
             
-            <div class="animation-element flex-shrink-0 mt-8 w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-200 h-[400px] hidden">dummy spacer</div>
+            <div class="text-center font-bold text-2xl">Is section visible: {{ isInViewport.isOnScreen$ | async }}</div>
+
+            <div class="animation-element flex-shrink-0 mt-8 w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-200 h-[600px] ">dummy spacer</div>
           </span>
 
         
