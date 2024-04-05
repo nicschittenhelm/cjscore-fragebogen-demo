@@ -16,8 +16,8 @@ import { debounceTime } from 'rxjs';
       transition(':enter', [
         query('.animation-element', [
           style({ opacity: 0, transform: 'translateZ(0) rotateX(-90deg)', transformOrigin: 'center' }),
-          stagger('50ms', [
-            animate('400ms cubic-bezier(.8, 0, 0.2, 3)', keyframes([
+          stagger('70ms', [
+            animate('400ms cubic-bezier(.8, 0, 0.2, 3.5)', keyframes([
               style({ transform: 'translateZ(0) rotateX(-90deg)', opacity: 0, offset: 0 }),
               style({ transform: 'translateZ(0) rotateX(-22.5deg)', opacity: 1, offset: 0.25 }),
               style({ transform: 'translateZ(0) rotateX(0deg)', offset: 1 })
@@ -31,7 +31,7 @@ import { debounceTime } from 'rxjs';
         ], { optional: true })
       ])
     ])
-
+    
 
   ]
 })
@@ -40,6 +40,4 @@ export class AppComponent {
   title = 'cjscore-fragebogen-demo';
   sectionsArr: any[] = ['1', '2', '3', '4', '5'];
  
-  
-
 }
