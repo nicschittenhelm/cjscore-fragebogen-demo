@@ -24,20 +24,22 @@ export class IsInViewportDirective {
     return new Observable<boolean>((subscriber) => {
       const intersectionObserver = new IntersectionObserver(
         (entries) => {
-          // Sometimes entries receive multiple entries
-          // Last one is correct
-          subscriber.next(entries[entries.length - 1].isIntersecting);
+          // Determine if the center of the element is in the viewport
+          const intersectionRatio = entries[0].intersectionRatio;
+          subscriber.next(intersectionRatio >= 0.5);
         },
         {
-          threshold: 1,
-        },
+          threshold: 0.5, // Trigger when at least 50% of the element is visible
+        }
       );
-
+  
       intersectionObserver.observe(element);
-
+  
       return () => {
         intersectionObserver.disconnect();
       };
     });
   }
+
+  
 }

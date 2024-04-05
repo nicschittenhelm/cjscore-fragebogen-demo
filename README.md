@@ -2,6 +2,11 @@
 [GH-Pages Demo](https://nicschittenhelm.github.io/cjscore-fragebogen-demo
 )
 
+to deploy:
+`ng build --base-href="/cjscore-fragebogen-demo/" --output-path=dist/cjscore-fragebogen-demo/`
+
+`ng deploy --base-href=/cjscore-fragebogen-demo/`           
+
 
 
 # CjscoreFragebogenDemo
