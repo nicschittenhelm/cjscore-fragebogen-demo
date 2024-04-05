@@ -1,6 +1,6 @@
 <two-column-layout>
   <div left>
-    <h1 class="font-bold text-5xl mb-8">Justo duo Dolores</h1>
+    <h1 class="font-bold text-5xl mb-4">Justo duo Dolores</h1>
     <p class="w-1/2 line-clamp-2 lg:line-clamp-none">Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
   </div>
 
@@ -19,7 +19,7 @@
         <section
         appIsInViewport
         #isInViewport="IsInViewport"
-        class="w-full flex h-full overflow-y-scroll flex-col items-center relative snap-start snap-always py-6 ">
+        class="w-full flex h-full overflow-y-scroll custom-hide-scrollbar flex-col items-center relative snap-start snap-always py-6 ">
           
           
             <div class="w-full" @scrollAnimation *ngIf="isInViewport.isOnScreen$ | async">
