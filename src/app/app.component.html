@@ -13,34 +13,40 @@
       <h2 class="font-bold text-lg mx-2">Clita</h2>
     </span>
 
-    <div #scrollableContent class="w-full flex-1 flex-grow overflow-y-scroll cursor-ns-resize snap-mandatory snap-y space-y-18 custom-hide-scrollbar custom-fade-gradient">
-      <ng-container *ngFor="let section of sectionsArr; let i = index">
+    <div class="w-full flex-1 flex-grow overflow-y-scroll snap-mandatory snap-y space-y-18 custom-hide-scrollbar custom-fade-gradient">
         
         <section
         appIsInViewport
         #isInViewport="IsInViewport"
-        class="w-full flex h-full overflow-y-scroll custom-hide-scrollbar flex-col items-center relative snap-start snap-always py-6 ">
+        *ngFor="let section of sectionsArr; let i = index; last as isLast"
+        class="w-full flex h-full overflow-y-scroll flex-col items-center relative snap-start snap-always py-6 custom-hide-scrollbar">
           
           
-            <div class="w-full" @scrollAnimation *ngIf="isInViewport.isOnScreen$ | async">
-              <!-- 
-                <div class="text-center font-bold text-2xl">Is section visible: {{ isInViewport.isOnScreen$ | async }}</div>
-              -->
-              <div class="animation-element flex-shrink-0 h-12 mb-2 w-full rounded-exxeta-border-radius bg-exxeta-grey-600 font-sen text-center text-exxeta-white text-exxeta-fontsize-xxl">{{sectionsArr[i]}}</div>
-              <div class="animation-element flex-shrink-0 h-12 mb-2 w-full rounded-exxeta-border-radius bg-exxeta-grey-600"></div>
-              <div class="animation-element flex-shrink-0 h-6 my-1 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
-              <div class="animation-element flex-shrink-0 h-6 my-1 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
+            <div
+            [@scrollAnimation]="isInViewport.isOnScreen$ | async"
+            [@stateAnimation]="isInViewport.isOnScreen$ | async"
+            class="w-full">
+          
+              <div class="animation-element flex-shrink-0 h-12 mb-2 w-full rounded-exxeta-border-radius bg-exxeta-grey-600 font-sen text-center text-exxeta-white text-exxeta-fontsize-xxl">Question {{sectionsArr[i]}}</div>
+
+              <div class="animation-element flex-shrink-0 h-12 mb-2 w-full rounded-exxeta-border-radius bg-exxeta-grey-200 font-sen text-center text-exxeta-white text-exxeta-fontsize-xxl"></div>
               
-              <div class="animation-element flex-shrink-0 h-6 my-1 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
+              <div *ngFor="let e of [].constructor(8); let i = index" class="animation-element flex-shrink-0 h-6 my-2 ml-auto w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-400"></div>
+              
+
               <div class="animation-element flex-shrink-0 h-8 mt-8 w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-200"></div>
 
               <div class="animation-element flex-shrink-0 mt-8 w-4/5 rounded-exxeta-border-radius bg-exxeta-grey-200 h-[600px] hidden">dummy spacer</div>
             
+              <button *ngIf="isLast" class="font-bold font-sen bg-exxeta-black text-exxeta-white text-exxeta-fontsize-s truncate min-w-12 max-w-[400px] h-6 px-3 py-1 rounded-exxeta-border-radius hover:bg-exxeta-white hover:text-exxeta-black border-3 border-exxeta-black transition-all duration-100 ease-in-out mt-4 float-end">
+                Weiter
+              </button>
+
             </div>
           
         </section>
       
-      </ng-container>
+      
     </div>
 
 
