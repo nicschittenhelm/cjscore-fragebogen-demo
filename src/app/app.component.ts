@@ -42,20 +42,18 @@ export class AppComponent {
   title = 'cjscore-fragebogen-demo';
   sectionsArr: any[] = ['1', '2', '3', '4', '5'];
 
-  randomArray: number[] | undefined;
+  demoQuestionArr: any[] = [
+    'Lastschrift',
+    'Kreditkarte',
+    'Debitkarte',
+    'Rechnung',
+    'Klarna',
+    'PayPal',
+    'Apple Pay',
+    'Google Pay',
+    'Amazon Pay'
+  ];
 
-  constructor() { }
-
-  ngOnInit(): void {
-    this.randomArray = this.generateRandomArray(2, 10);
-  }
-
-  generateRandomNumber(min: number, max: number): number {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-
-  generateRandomArray(minLength: number, maxLength: number): number[] {
-    const length = this.generateRandomNumber(minLength, maxLength);
-    return new Array(length).fill(0);
-  }
+  
+  
 }
