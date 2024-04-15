@@ -1,14 +1,10 @@
+import { Component } from '@angular/core';
 import { animate, keyframes, query, stagger, state, style, transition, trigger } from '@angular/animations';
-import { Component, ViewChild, ViewContainerRef } from '@angular/core';
-import { QuestionTypeOneComponent } from './question-type-one/question-type-one.component';
-import { QuestionTypeTwoComponent } from './question-type-two/question-type-two.component';
-
-
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  selector: 'question-type-one',
+  templateUrl: './question-type-one.component.html',
+  styleUrl: './question-type-one.component.scss',
   animations: [
     
     trigger('scrollAnimation', [
@@ -37,25 +33,20 @@ import { QuestionTypeTwoComponent } from './question-type-two/question-type-two.
 
   ]
 })
+export class QuestionTypeOneComponent {
 
-export class AppComponent {
-  title = 'cjscore-fragebogen-demo';
-  
+  sectionsArr: any[] = ['1', '2', '3', '4', '5'];
 
-  questionTypeOne = QuestionTypeOneComponent;
-  questionTypeTwo = QuestionTypeTwoComponent;
+  demoQuestionArr: any[] = [
+    'Lastschrift',
+    'Kreditkarte',
+    'Debitkarte',
+    'Rechnung',
+    'Klarna',
+    'PayPal',
+    'Apple Pay',
+    'Google Pay',
+    'Amazon Pay'
+  ];
 
-  @ViewChild('questionContainer', { read: ViewContainerRef }) questionContainer!: ViewContainerRef;
-
-  constructor() { }
-
-  
-
-  loadJourneyPhase(component: any) {
-    this.questionContainer.clear();
-    const questionsRef = this.questionContainer.createComponent(component);
-  }
-
-  
-  
 }

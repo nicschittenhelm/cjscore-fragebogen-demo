@@ -6,12 +6,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TwoColumnLayoutComponent } from './components/two-column-layout/two-column-layout.component';
 import { IsInViewportDirective } from './is-in-viewport.directive';
+import { QuestionTypeOneComponent } from './question-type-one/question-type-one.component';
+import { QuestionTypeTwoComponent } from './question-type-two/question-type-two.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TwoColumnLayoutComponent,
     IsInViewportDirective,
+    QuestionTypeOneComponent,
+    QuestionTypeTwoComponent,
   ],
   imports: [
     BrowserModule,
