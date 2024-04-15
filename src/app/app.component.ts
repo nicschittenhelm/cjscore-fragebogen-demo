@@ -1,5 +1,5 @@
 import { animate, keyframes, query, stagger, state, style, transition, trigger } from '@angular/animations';
-import { Component, ViewChild, ViewContainerRef } from '@angular/core';
+import { ChangeDetectorRef, Component, ViewChild, ViewContainerRef } from '@angular/core';
 import { QuestionTypeOneComponent } from './question-type-one/question-type-one.component';
 import { QuestionTypeTwoComponent } from './question-type-two/question-type-two.component';
 
@@ -47,9 +47,12 @@ export class AppComponent {
 
   @ViewChild('questionContainer', { read: ViewContainerRef }) questionContainer!: ViewContainerRef;
 
-  constructor() { }
+  constructor(private cdr: ChangeDetectorRef) { }
 
-  
+  ngAfterViewInit() {
+    this.loadJourneyPhase(this.questionTypeOne);
+    this.cdr.detectChanges(); // Trigger change detection
+  }
 
   loadJourneyPhase(component: any) {
     this.questionContainer.clear();
