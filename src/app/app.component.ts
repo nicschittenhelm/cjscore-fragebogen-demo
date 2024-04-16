@@ -28,7 +28,7 @@ import { QuestionTypeTwoComponent } from './question-type-two/question-type-two.
     ]),
     
     trigger('stateAnimation', [
-      state('false', style({ opacity: 0 })),
+      state('false', style({ opacity: 0, })),
       state('true', style({ opacity: 1 })),
       transition('* <=> *', [
         animate('200ms ease-in')
@@ -50,15 +50,16 @@ export class AppComponent {
   constructor(private cdr: ChangeDetectorRef) { }
 
   ngAfterViewInit() {
-    this.loadJourneyPhase(this.questionTypeOne);
+    this.loadQuestion(this.questionTypeOne);
     this.cdr.detectChanges(); // Trigger change detection
   }
 
-  loadJourneyPhase(component: any) {
+  loadQuestion(component: any) {
     this.questionContainer.clear();
     const questionsRef = this.questionContainer.createComponent(component);
   }
 
+  
   
   
 }
