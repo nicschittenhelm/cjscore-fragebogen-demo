@@ -18,3 +18,13 @@
   mask: linear-gradient(90deg,#0000,#000 16px calc(100% - 16px),#0000);
   -webkit-mask: linear-gradient(90deg,#0000,#000 16px calc(100% - 16px),#0000);
 }
+
+.custom-fade-gradient-bottom {
+  mask: linear-gradient(180deg,#0000,#000 0px calc(100% - 16px),#0000);
+  -webkit-mask: linear-gradient(180deg,#0000,#000 0px calc(100% - 16px),#0000);
+}
+
+.custom-fade-gradient-top {
+  mask: linear-gradient(0deg,#0000,#000 0px calc(100% - 16px),#0000);
+  -webkit-mask: linear-gradient(0deg,#0000,#000 0px calc(100% - 16px),#0000);
+}

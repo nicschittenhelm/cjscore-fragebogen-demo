@@ -31,23 +31,11 @@ import { animate, keyframes, query, stagger, state, style, transition, trigger }
       ])
     ]),
 
-    trigger('expandCollapse', [
-      transition(':enter', [
-        style({ transform: 'translateY(-200%)', opacity: 0 }),
-        animate('200ms ease-out', style({ transform: 'translateY(0)', opacity: 1 }))
-      ]),
-      transition(':leave', [
-        style({ transform: 'translateY(0)', opacity: 1 }),
-        animate('200ms ease-in', style({ transform: 'translateY(-200%)', opacity: 0 }))
-      ])
-    ])
-
   ]
 })
 export class QuestionTypeOneComponent {
   
   sectionsArr: any[] = ['1', '2', '3', '4', '5'];
-  expanded: boolean = true;
   demoQuestionArr: string[] = [];
   demoAnswerArr: { [key: number]: string } = {
     1: 'Vel eum iriure dolor',
@@ -70,10 +58,6 @@ export class QuestionTypeOneComponent {
     }
   }
   
-
-  toggleCollapse(): void {
-    this.expanded = !this.expanded;
-  }
 
   /*
   demoQuestionArr: any[] = [

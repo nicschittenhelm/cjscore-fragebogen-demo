@@ -33,7 +33,19 @@ import { QuestionTypeTwoComponent } from './question-type-two/question-type-two.
       transition('* <=> *', [
         animate('200ms ease-in')
       ])
+    ]),
+
+    trigger('expandCollapse', [
+      transition(':enter', [
+        style({ transform: 'translateY(-200%)', opacity: 0 }),
+        animate('200ms ease-out', style({ transform: 'translateY(0)', opacity: 1 }))
+      ]),
+      transition(':leave', [
+        style({ transform: 'translateY(0)', opacity: 1 }),
+        animate('200ms ease-in', style({ transform: 'translateY(-200%)', opacity: 0 }))
+      ])
     ])
+
 
   ]
 })
@@ -60,6 +72,12 @@ export class AppComponent {
   }
 
   
+  expanded: boolean = true;
+
+  toggleCollapse(): void {
+    this.expanded = !this.expanded;
+  }
+
   
   
 }

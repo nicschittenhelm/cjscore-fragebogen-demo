@@ -4,32 +4,11 @@ class="w-full flex h-full overflow-y-scroll flex-col items-center relative snap-
   <div
   class="w-full">
 
-  <div class="overflow-hidden">
-    
-    <!--
-      <div (click)="toggleCollapse()" class="animation-element flex-shrink-0 mb-2 p-2 w-full font-bold rounded-exxeta-border-radius bg-exxeta-black font-sen text-exxeta-white text-exxeta-fontsize-m relative z-10">Welche Bezahlmethoden werden angeboten?</div>
-    -->
-
-    <div (click)="toggleCollapse()" class="animation-element flex-shrink-0 mb-2  w-full font-bold bg-white flex items-center relative z-10">
-      
-      <span class="font-sen text-exxeta-black flex-1 text-exxeta-fontsize-mobile-nav ">Welche Bezahlmethoden werden angeboten?</span>
-      
-      <svg *ngIf="expanded" class="h-2 w-2 float-end" width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4.10503 5.21446L0.480029 1.53321C0.333154 1.38633 0.333154 1.14883 0.480029 1.00195L0.701904 0.780078C0.848779 0.633203 1.08628 0.633203 1.23315 0.780078L4.37065 3.97696L7.50815 0.783204C7.65503 0.636328 7.89253 0.636328 8.0394 0.783204L8.26128 1.00508C8.40815 1.15195 8.40815 1.38945 8.26128 1.53633L4.63628 5.21759C4.4894 5.36134 4.2519 5.36134 4.10503 5.21446Z" fill="black"/>
-      </svg>
-
-      <svg *ngIf="!expanded" class="h-2 w-2 float-end" width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4.79521 0.784378L8.42021 4.46564C8.56709 4.61251 8.56709 4.85001 8.42021 4.99689L8.19834 5.21876C8.05146 5.36564 7.81396 5.36564 7.66709 5.21876L4.52959 2.02188L1.39209 5.21564C1.24521 5.36251 1.00771 5.36251 0.86084 5.21564L0.638965 4.99376C0.49209 4.84689 0.49209 4.60939 0.638965 4.46251L4.26396 0.781253C4.41084 0.637503 4.64834 0.637503 4.79521 0.784378Z" fill="black"/>
-      </svg>
-
-    </div>
-    
-    <div *ngIf="!expanded" @expandCollapse class="test animation-element flex-shrink-0 mb-2 px-2 w-full rounded-exxeta-border-radius font-sen text-exxeta-grey-600 text-exxeta-fontsize-s -z-10">Die verschiedenen Bezahlsysteme wurden von verschiedenen Institutionen (PostNord, EHI Institute) und Experten (Wottawa, Fentem) nach Popularität und Vorkommen gerankt, aufgrund welcher wir die Bezahlsysteme in drei Kategorien (Old Standards, New Standards, Mobile Payments) aufgeteilt haben und entsprechend bewerten.</div>
-  </div>
+  
     
     
       
-      <ul class="space-y-2 my-4">
+      <ul class="space-y-2 my-2">
         
         <label *ngFor="let Question of demoQuestionArr"  class="animation-element flex items-center relative">
           <input type="checkbox" 
@@ -40,7 +19,7 @@ class="w-full flex h-full overflow-y-scroll flex-col items-center relative snap-
       </ul>
       
     
-    <div class="flex justify-center w-full">
+    <div class="flex justify-center w-full mt-6">
       <input type="text" placeholder="Comment" class="animation-element w-full max-w-[600px] p-1.5 font-sen text-exxeta-fontsize-m rounded-exxeta-border-radius outline-none bg-exxeta-grey-50 text-exxeta-grey-600"> 
     </div>
 
