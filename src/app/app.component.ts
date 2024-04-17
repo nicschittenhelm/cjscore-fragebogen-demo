@@ -11,6 +11,7 @@ import { QuestionTypeTwoComponent } from './question-type-two/question-type-two.
   styleUrl: './app.component.scss',
   animations: [
     
+    /* old stagger animation
     trigger('scrollAnimation', [
       transition('false => true', [
         query('.animation-element', [
@@ -34,6 +35,7 @@ import { QuestionTypeTwoComponent } from './question-type-two/question-type-two.
         animate('200ms ease-in')
       ])
     ]),
+    */
 
     trigger('expandCollapse', [
       transition(':enter', [
@@ -44,7 +46,8 @@ import { QuestionTypeTwoComponent } from './question-type-two/question-type-two.
         style({ transform: 'translateY(0)', opacity: 1 }),
         animate('200ms ease-in', style({ transform: 'translateY(-200%)', opacity: 0 }))
       ])
-    ])
+    ]),
+
 
 
   ]

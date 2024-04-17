@@ -7,6 +7,7 @@ import { animate, keyframes, query, stagger, state, style, transition, trigger }
   styleUrl: './question-type-one.component.scss',
   animations: [
     
+    /* old stagger animation
     trigger('scrollAnimation', [
       transition('false => true', [
         query('.animation-element', [
@@ -24,12 +25,28 @@ import { animate, keyframes, query, stagger, state, style, transition, trigger }
     ]),
     
     trigger('stateAnimation', [
-      state('false', style({ opacity: 0 })),
+      state('false', style({ opacity: 0, })),
       state('true', style({ opacity: 1 })),
       transition('* <=> *', [
         animate('200ms ease-in')
       ])
     ]),
+    */
+
+    trigger('fadeInOut', [
+      transition(':enter', [
+        query('.animation-element', [
+          style({ opacity: 0, transform: 'translateX(100%)' }), // Move in from the right
+          stagger('30ms ease-out', [
+            animate('300ms ease-out', keyframes([
+              style({ transform: 'translateX(100%)', opacity: 0, offset: 0 }), // Start position
+              style({ transform: 'translateX(0)', opacity: 1, offset: 1 }) // End position
+            ]))
+          ])
+        ], { optional: true })
+      ]),
+    ])
+
 
   ]
 })
