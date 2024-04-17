@@ -53,7 +53,7 @@
     
         </div>
         
-        <div class="overflow-hidden">
+        <div class="overflow-hidden relative">
           <div *ngIf="!expanded" @expandCollapse class="flex-shrink-0 w-full font-sen text-exxeta-grey-600 text-exxeta-fontsize-s mt-1">Die verschiedenen Bezahlsysteme wurden von verschiedenen Institutionen (PostNord, EHI Institute) und Experten (Wottawa, Fentem) nach Popularität und Vorkommen gerankt, aufgrund welcher wir die Bezahlsysteme in drei Kategorien (Old Standards, New Standards, Mobile Payments) aufgeteilt haben und entsprechend bewerten.</div>
         </div>
       </div>
@@ -62,13 +62,13 @@
 
 
 
-      <div class="w-full flex-1 flex-grow overflow-y-scroll snap-mandatory snap-y space-y-18 custom-hide-scrollbar custom-fade-gradient relative">
+      <div class="w-full flex-1 flex-grow overflow-y-scroll custom-fade-gradient relative">
       <ng-container #questionContainer></ng-container>
       </div>
 
 
 
-    <div class="flex sticky bottom-0 bg-exxeta-white py-3 custom-fade-gradient-top justify-center w-full mt-6">
+    <div class="flex sticky bottom-0 bg-exxeta-white py-3 custom-fade-gradient-top justify-center w-full">
       <div class="flex justify-between items-center w-[400px]">
         
         <button (click)="loadQuestion(questionTypeOne)" class="font-bold bg-exxeta-white text-exxeta-black font-sen text-exxeta-fontsize-s truncate min-w-12 max-w-[400px] h-6 px-3 py-1 rounded-exxeta-border-radius hover:bg-exxeta-black hover:text-exxeta-white border-3 border-exxeta-black transition-all duration-100 ease-in-out">Zurück</button>

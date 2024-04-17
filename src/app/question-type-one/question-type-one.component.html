@@ -1,28 +1,16 @@
 <section
-class="w-full flex h-full overflow-y-scroll flex-col items-center relative snap-start snap-always py-3 custom-hide-scrollbar">
-  
-  <div
-  class="w-full">
+class="w-full flex h-full flex-col items-center relative py-2">
 
-  
-    
-    
+  <ul class="space-y-2">
+    <label *ngFor="let Question of demoQuestionArr"  class="animation-element flex items-center relative">
+      <input type="checkbox" 
+      class="appearance-none relative aspect-square h-3 w-3 border border-black rounded-full checked:after:content-[''] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-1.5	 checked:after:w-1.5 checked:after:rounded-full checked:after:border-black checked:after:bg-exxeta-black	 checked:after:[transform:translate(-50%,-50%)] checked:bg-white">
+      <span class="ml-2 font-sen text-exxeta-fontsize-m font-bold leading-none">{{Question}}</span>
+    </label>
+  </ul>
       
-      <ul class="space-y-2">
-        
-        <label *ngFor="let Question of demoQuestionArr"  class="animation-element flex items-center relative">
-          <input type="checkbox" 
-          class="appearance-none relative aspect-square h-3 w-3 border border-black rounded-full checked:after:content-[''] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-1.5	 checked:after:w-1.5 checked:after:rounded-full checked:after:border-black checked:after:bg-exxeta-black	 checked:after:[transform:translate(-50%,-50%)] checked:bg-white">
-          <span class="ml-2 font-sen text-exxeta-fontsize-m font-bold leading-none">{{Question}}</span>
-        </label>
-
-      </ul>
-      
-    
-    <div class="flex justify-center w-full mt-6">
-      <input type="text" placeholder="Comment" class="animation-element w-full max-w-[600px] p-1.5 font-sen text-exxeta-fontsize-m rounded-exxeta-border-radius outline-none bg-exxeta-grey-50 text-exxeta-grey-600"> 
-    </div>
-
+  <div class="flex justify-center w-full mt-6">
+    <input type="text" placeholder="Comment" class="animation-element w-full max-w-[600px] p-1.5 font-sen text-exxeta-fontsize-m rounded-exxeta-border-radius outline-none bg-exxeta-grey-50 text-exxeta-grey-600"> 
   </div>
             
 </section>
