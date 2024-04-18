@@ -8,7 +8,7 @@
 
 
 
-  <div right>
+  <div #test right>
 
     <div class="w-full flex justify-center">
       <ul class="flex overflow-x-scroll custom-hide-scrollbar">
@@ -68,7 +68,7 @@
 
 
 
-      <div #scrollableQuestionContainer class="w-full flex-1 flex-grow overflow-y-scroll custom-fade-gradient relative">
+      <div #scrollableQuestionContainer class="w-full flex-1 flex-grow overflow-y-scroll overflow-x-hidden custom-fade-gradient relative">
       <ng-container #questionContainer></ng-container>
       </div>
 
@@ -78,13 +78,13 @@
       <div class="flex justify-between items-center w-[300px]">
         
         <button
-        (click)="loadQuestion(questionTypeOne); this.twoColumnLayoutComponent.scrollToTop(); scrollToTop()"
+        (click)="loadQuestion(questionTypeOne); scrollToTopQuestion(); scrollToTopSection()"
         class="font-bold bg-exxeta-white text-exxeta-black font-sen text-exxeta-fontsize-s truncate min-w-12 max-w-[400px] h-6 px-3 py-1 rounded-exxeta-border-radius hover:bg-exxeta-black hover:text-exxeta-white border-3 border-exxeta-black transition-all duration-100 ease-in-out">Zurück</button>
         
         <p class="font-sen text-exxeta-fontsize-m text-exxeta-grey-600 font-bold">1/13</p>
 
         <button
-        (click)="loadQuestion(questionTypeOne); this.twoColumnLayoutComponent.scrollToTop(); scrollToTop()"
+        (click)="loadQuestion(questionTypeOne); scrollToTopQuestion(); scrollToTopSection()"
         class="font-bold font-sen bg-exxeta-black text-exxeta-white text-exxeta-fontsize-s truncate min-w-12 max-w-[400px] h-6 px-3 py-1 rounded-exxeta-border-radius hover:bg-exxeta-white hover:text-exxeta-black border-3 border-exxeta-black transition-all duration-100 ease-in-out">Weiter</button>
         
       </div>

@@ -65,6 +65,7 @@ export class AppComponent {
 
   @ViewChild(TwoColumnLayoutComponent) twoColumnLayoutComponent!: TwoColumnLayoutComponent;
   @ViewChild('scrollableQuestionContainer', { static: false }) scrollableQuestionContainer!: ElementRef;
+  @ViewChild('test', { static: false }) test!: ElementRef;
 
   constructor(private cdr: ChangeDetectorRef) { }
 
@@ -83,11 +84,13 @@ export class AppComponent {
     this.expanded = !this.expanded;
   }
 
-  scrollToTop(): void {
+  scrollToTopQuestion(): void {
     this.scrollableQuestionContainer.nativeElement.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-
-  
+  scrollToTopSection(): void {
+    const snapPoint = this.twoColumnLayoutComponent?.scrollSnapPoint?.nativeElement.getBoundingClientRect().top;
+    window.scrollBy(0, snapPoint);
+  }
   
 }

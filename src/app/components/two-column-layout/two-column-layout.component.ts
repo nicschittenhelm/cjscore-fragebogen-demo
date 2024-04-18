@@ -1,5 +1,5 @@
 import { animate, query, style, transition, trigger } from '@angular/animations';
-import { HostBinding, Component, ElementRef, Input, OnChanges, ViewChild } from '@angular/core';
+import { HostBinding, Component, ElementRef, Input, OnChanges, ViewChild, OnInit } from '@angular/core';
 
 @Component({
   selector: 'two-column-layout',
@@ -12,6 +12,10 @@ export class TwoColumnLayoutComponent {
 
   scrollToTop(): void {
     this.scrollSnapPoint.nativeElement.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  ngAfterViewInit(): void {
+    this.scrollToTop
   }
 
 }
