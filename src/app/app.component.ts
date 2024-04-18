@@ -41,11 +41,11 @@ import { TwoColumnLayoutComponent } from './components/two-column-layout/two-col
     trigger('expandCollapse', [
       transition(':enter', [
         style({ transform: 'translateY(-200%)', opacity: 0 }),
-        animate('200ms ease-out', style({ transform: 'translateY(0)', opacity: 1 }))
+        animate('300ms ease-out', style({ transform: 'translateY(0)', opacity: 1 }))
       ]),
       transition(':leave', [
         style({ transform: 'translateY(0)', opacity: 1 }),
-        animate('200ms ease-in', style({ transform: 'translateY(-200%)', opacity: 0 }))
+        animate('300ms ease-in', style({ transform: 'translateY(-200%)', opacity: 0 }))
       ])
     ]),
 

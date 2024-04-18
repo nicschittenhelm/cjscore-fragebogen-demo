@@ -33,7 +33,7 @@ import { animate, keyframes, query, stagger, state, style, transition, trigger }
     ]),
     */
 
-    trigger('fadeInOut', [
+    trigger('questionStaggerAnimation', [
       transition(':enter', [
         query('.animation-element', [
           style({ opacity: 0, transform: 'translateX(100%)' }), // Move in from the right
