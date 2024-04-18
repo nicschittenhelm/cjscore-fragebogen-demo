@@ -62,8 +62,9 @@ export class AppComponent {
   questionTypeTwo = QuestionTypeTwoComponent;
 
   @ViewChild('questionContainer', { read: ViewContainerRef }) questionContainer!: ViewContainerRef;
-  
+
   @ViewChild(TwoColumnLayoutComponent) twoColumnLayoutComponent!: TwoColumnLayoutComponent;
+  @ViewChild('scrollableQuestionContainer', { static: false }) scrollableQuestionContainer!: ElementRef;
 
   constructor(private cdr: ChangeDetectorRef) { }
 
@@ -80,6 +81,10 @@ export class AppComponent {
   expanded: boolean = true;
   toggleCollapse(): void {
     this.expanded = !this.expanded;
+  }
+
+  scrollToTop(): void {
+    this.scrollableQuestionContainer.nativeElement.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
 
