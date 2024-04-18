@@ -4,23 +4,14 @@ import { HostBinding, Component, ElementRef, Input, OnChanges, ViewChild } from 
 @Component({
   selector: 'two-column-layout',
   templateUrl: './two-column-layout.component.html',
-  styleUrl: './two-column-layout.component.scss',
-  animations: [
-    
-    trigger('heightChange', [
-      transition('* => *', [
-        query(':enter, :leave', [
-          style({ opacity: 0, height: '{{startHeight}}px' }), // Set initial height
-          animate('300ms ease-out', style({ opacity: 1, height: '{{endHeight}}px' })) // Animate to new height
-        ], { optional: true })
-      ], { params: { startHeight: 0, endHeight: 0 } }) // Define parameters for start and end height
-    ])
-
-
-  ]
+  styleUrl: './two-column-layout.component.scss'
 })
 export class TwoColumnLayoutComponent {
 
+  @ViewChild('scrollSnapPoint') scrollSnapPoint!: ElementRef;
 
+  scrollToTop(): void {
+    this.scrollSnapPoint.nativeElement.scrollIntoView({ behavior: 'smooth' });
+  }
 
 }

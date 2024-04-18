@@ -1,7 +1,8 @@
 import { animate, keyframes, query, stagger, state, style, transition, trigger } from '@angular/animations';
-import { ChangeDetectorRef, Component, ViewChild, ViewContainerRef } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { QuestionTypeOneComponent } from './question-type-one/question-type-one.component';
 import { QuestionTypeTwoComponent } from './question-type-two/question-type-two.component';
+import { TwoColumnLayoutComponent } from './components/two-column-layout/two-column-layout.component';
 
 
 
@@ -61,6 +62,8 @@ export class AppComponent {
   questionTypeTwo = QuestionTypeTwoComponent;
 
   @ViewChild('questionContainer', { read: ViewContainerRef }) questionContainer!: ViewContainerRef;
+  
+  @ViewChild(TwoColumnLayoutComponent) twoColumnLayoutComponent!: TwoColumnLayoutComponent;
 
   constructor(private cdr: ChangeDetectorRef) { }
 
@@ -74,12 +77,11 @@ export class AppComponent {
     const questionsRef = this.questionContainer.createComponent(component);
   }
 
-  
   expanded: boolean = true;
-
   toggleCollapse(): void {
     this.expanded = !this.expanded;
   }
+
 
   
   

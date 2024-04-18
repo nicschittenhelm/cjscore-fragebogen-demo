@@ -67,7 +67,7 @@ export class QuestionTypeOneComponent {
 
 
   ngOnInit(): void {
-    const length = Math.floor(Math.random() * (24 - 4 + 1)) + 4;
+    const length = Math.floor(Math.random() * (24 - 20 + 1)) + 20;
     
     for (let i = 1; i <= length; i++) {
       const randomKey = Math.floor(Math.random() * 8) + 1;
@@ -75,6 +75,10 @@ export class QuestionTypeOneComponent {
     }
   }
   
+  adjustCommentHeight(textarea: HTMLTextAreaElement): void {
+    textarea.style.height = 'auto';
+    textarea.style.height = `${textarea.scrollHeight}px`;
+  }
 
   /*
   demoQuestionArr: any[] = [
