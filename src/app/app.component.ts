@@ -40,14 +40,14 @@ import { TwoColumnLayoutComponent } from './components/two-column-layout/two-col
 
     trigger('expandCollapse', [
       transition(':enter', [
-        style({ transform: 'translateY(-200%)', opacity: 0 }),
-        animate('300ms ease-out', style({ transform: 'translateY(0)', opacity: 1 }))
+        style({ height: '0' }),
+        animate('300ms ease-out', style({ height: '*' }))
       ]),
       transition(':leave', [
-        style({ transform: 'translateY(0)', opacity: 1 }),
-        animate('300ms ease-in', style({ transform: 'translateY(-200%)', opacity: 0 }))
+        style({ height: '*' }),
+        animate('300ms ease-in', style({ height: '0'}))
       ])
-    ]),
+    ])
 
 
 
@@ -57,7 +57,6 @@ import { TwoColumnLayoutComponent } from './components/two-column-layout/two-col
 export class AppComponent {
   title = 'cjscore-fragebogen-demo';
   
-
   questionTypeOne = QuestionTypeOneComponent;
   questionTypeTwo = QuestionTypeTwoComponent;
 
@@ -65,13 +64,12 @@ export class AppComponent {
 
   @ViewChild(TwoColumnLayoutComponent) twoColumnLayoutComponent!: TwoColumnLayoutComponent;
   @ViewChild('scrollableQuestionContainer', { static: false }) scrollableQuestionContainer!: ElementRef;
-  @ViewChild('test', { static: false }) test!: ElementRef;
 
   constructor(private cdr: ChangeDetectorRef) { }
 
   ngAfterViewInit() {
     this.loadQuestion(this.questionTypeOne);
-    this.cdr.detectChanges(); // Trigger change detection
+    this.cdr.detectChanges();
   }
 
   loadQuestion(component: any) {

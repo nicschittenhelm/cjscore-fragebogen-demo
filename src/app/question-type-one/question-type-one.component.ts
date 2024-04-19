@@ -67,7 +67,7 @@ export class QuestionTypeOneComponent {
 
 
   ngOnInit(): void {
-    const length = Math.floor(Math.random() * (24 - 20 + 1)) + 20;
+    const length = Math.floor(Math.random() * (24 - 2 + 1)) + 2;
     
     for (let i = 1; i <= length; i++) {
       const randomKey = Math.floor(Math.random() * 8) + 1;
