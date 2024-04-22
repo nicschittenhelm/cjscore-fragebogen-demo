@@ -1,7 +1,6 @@
 import { animate, keyframes, query, stagger, state, style, transition, trigger } from '@angular/animations';
 import { ChangeDetectorRef, Component, ElementRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { QuestionTypeOneComponent } from './question-type-one/question-type-one.component';
-import { QuestionTypeTwoComponent } from './question-type-two/question-type-two.component';
 import { TwoColumnLayoutComponent } from './components/two-column-layout/two-column-layout.component';
 
 
@@ -58,7 +57,6 @@ export class AppComponent {
   title = 'cjscore-fragebogen-demo';
   
   questionTypeOne = QuestionTypeOneComponent;
-  questionTypeTwo = QuestionTypeTwoComponent;
 
   @ViewChild('questionContainer', { read: ViewContainerRef }) questionContainer!: ViewContainerRef;
 

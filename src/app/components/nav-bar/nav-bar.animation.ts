@@ -23,7 +23,7 @@ import {
       transition('closed => opened', [
         group([
           // Scale the container
-          animate('300ms cubic-bezier(0,.75,.3,1)', keyframes([
+          animate('500ms cubic-bezier(0,.75,.3,1)', keyframes([
             style({ transform: 'perspective(200px) rotateY(-90deg) scaleX(0) scaleY(0)', display: 'block', opacity: 1, offset: 0 }),
             style({ transform: 'perspective(200px) rotateY(-45deg) scaleX(0.3) scaleY(1)', offset: 0.7 }),
             style({ transform: 'perspective(200px) rotateY(0deg) scaleX(1) scaleY(1)', offset: 1.0 }),
@@ -45,7 +45,7 @@ import {
       transition('opened => closed', [
         group([
           // Scale the container back
-          animate('300ms cubic-bezier(.30,0,1,1)', keyframes([
+          animate('500ms cubic-bezier(.30,0,1,1)', keyframes([
             style({ transform: 'perspective(200px) rotateY(0deg) scaleX(1) scaleY(1)', offset: 0 }),
             style({ transform: 'perspective(200px) rotateY(-45deg) scaleX(0.3) scaleY(1)', offset: 0.3 }),
             style({ transform: 'perspective(200px) rotateY(-90deg) scaleX(0) scaleY(0)', display: 'none', offset: 1.0 }),
