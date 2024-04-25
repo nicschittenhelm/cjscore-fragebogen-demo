@@ -40,11 +40,11 @@ import { TwoColumnLayoutComponent } from './components/two-column-layout/two-col
     trigger('expandCollapse', [
       transition(':enter', [
         style({ height: '0' }),
-        animate('300ms ease-out', style({ height: '*' }))
+        animate('200ms ease-out', style({ height: '*' }))
       ]),
       transition(':leave', [
         style({ height: '*' }),
-        animate('300ms ease-in', style({ height: '0'}))
+        animate('200ms ease-in', style({ height: '0'}))
       ])
     ])
 
@@ -75,10 +75,19 @@ export class AppComponent {
     const questionsRef = this.questionContainer.createComponent(component);
   }
 
-  expanded: boolean = true;
+  expanded: boolean = false;
   toggleCollapse(): void {
     this.expanded = !this.expanded;
+    if (this.expanded) {
+      window.addEventListener('scroll', this.onScroll);
+    }
   }
+  
+  onScroll = (): void => {
+    this.expanded = false;
+    window.removeEventListener('scroll', this.onScroll);
+  }
+
 
   scrollToTopQuestion(): void {
     this.scrollableQuestionContainer.nativeElement.scrollTo({ top: 0, behavior: 'smooth' });

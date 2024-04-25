@@ -1,10 +1,10 @@
 <div class="flex flex-col lg:grid grid-cols-2 lg:snap-none">
-    <section class="bg-exxeta-black text-exxeta-white lg:pt-13 xl:px-12 lg:pb-0 pb-6 pt-10 px-3 h-auto">
+    <section class="bg-exxeta-black text-exxeta-white lg:pt-13 xl:px-12 lg:pb-0 pb-6 pt-12 px-3 h-auto">
         <ng-content select="[left]"></ng-content>
     </section>
     <section
     #scrollSnapPoint
-    class="custom-flex lg:h-screen h-full min-h-screen bg-exxeta-white text-exxeta-black lg:pt-13 pt-0 pb-0 xl:px-12 px-3 rounded-tl-exxeta-border-radius rounded-tr-exxeta-border-radius lg:rounded-tl-none lg:rounded-tr-none -mt-3 lg:mt-0 ">
+    class="custom-flex lg:h-screen h-full min-h-screen overflow-clip bg-exxeta-white text-exxeta-black lg:pt-13 pt-0 pb-0 xl:px-12 px-3 rounded-tl-exxeta-border-radius rounded-tr-exxeta-border-radius lg:rounded-tl-none lg:rounded-tr-none -mt-3 lg:mt-0">
         <ng-content select="[right]"></ng-content>
     </section>
 </div>
